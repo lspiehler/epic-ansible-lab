@@ -1,0 +1,16 @@
+# https://docs.ansible.com/projects/ansible/latest/collections/azure/azcollection/azure_rm_inventory.html
+plugin: azure.azcollection.azure_rm
+# include_vm_resource_groups:
+#  - rg-myrg
+auth_source: msi
+# subscription_id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+# tenant: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+conditional_groups:
+  azure_rm: true
+  has_managed_disks: "data_disks | count > 0"
+hostnames:
+  - name
+keyed_groups:
+  - prefix: ''
+    separator: ''
+    key: os_profile.system

@@ -1,0 +1,15 @@
+---
+- name: Install IIS on Windows Servers
+  hosts: all
+  tasks:
+    - name: Install IIS features
+      # https://docs.ansible.com/projects/ansible/latest/collections/ansible/windows/win_feature_module.html
+      ansible.windows.win_feature:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - Web-Server
+        - Web-Mgmt-Console
+        - Web-Scripting-Tools
+        - Web-Asp-Net45
+        - RSAT-AD-PowerShell

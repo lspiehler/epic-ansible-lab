@@ -1,0 +1,15 @@
+all:
+  hosts:
+    azwu2nhsw001:
+  vars:
+    global_var: global_value
+  children:
+    windows:
+      hosts:
+        azwu2nhsw001:
+      # vars:
+      #   ansible_shell_type: powershell
+      #   ansible_user: "{{ lookup('ansible.builtin.env', 'SERVER_ADMIN_USER') }}"
+      #   ansible_password: "{{ lookup('ansible.builtin.env', 'SERVER_ADMIN_PASSWORD') }}"
+      #   ansible_connection: psrp
+      #   ansible_port: 5985
