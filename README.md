@@ -29,7 +29,7 @@ ansible-inventory -i inventory.azure_rm.yml --list --yaml
 
 ## Ping Windows Server
 ```
-ansible -i inventory.yml -m ansible.windows.win_ping azwu2nhsw001
+ansible -i inventory.azure_rm.yml -m ansible.windows.win_ping azwu2nhsw001
 ```
 
 ## Install IIS
@@ -39,5 +39,5 @@ ansible-playbook -i inventory.yml playbook-install-iis.yml # run twice to test i
 
 ## Apply CIS Hardening (Using Ansible Role)
 ```
-ansible-playbook -i inventory.yml playbook-windows-cis-hardening.yml
+ansible-playbook -i inventory.azure_rm.yml playbook-windows-cis-hardening.yml
 ```
