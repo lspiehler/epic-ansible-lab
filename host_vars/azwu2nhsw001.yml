@@ -1,0 +1,11 @@
+# https://github.com/dsccommunity/StorageDsc
+volumes:
+  db:
+    DriveLetter: G
+  log:
+    DriveLetter: H
+  temp:
+    DriveLetter: I
+  data:
+    DriveLetter: J
+    FSLabel: CustomDataLabel

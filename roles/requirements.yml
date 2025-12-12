@@ -1,0 +1,5 @@
+# install these deps ansible-galaxy role install -r roles/requirements.yml --force
+---
+roles:
+  - name: azure_windows_storage
+    src: https://github.com/Sapphire-Health/ansible-role-azure-windows-storage.git

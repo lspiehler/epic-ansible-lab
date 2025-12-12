@@ -1,0 +1,7 @@
+---
+- name: Provision Storage
+  hosts: all
+  tasks:
+    - name: Provision Azure windows storage
+      ansible.builtin.include_role:
+        name: "azure_windows_storage"
