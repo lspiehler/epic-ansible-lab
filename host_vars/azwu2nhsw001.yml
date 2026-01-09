@@ -6,6 +6,8 @@ volumes:
     DriveLetter: H
   temp:
     DriveLetter: I
+    AllowDestructive: true
+    Size: 10737418240
   data:
     DriveLetter: J
     FSLabel: CustomDataLabel
