@@ -1,6 +1,6 @@
 ## Activate Virtual Env
 ```
-source ~/venvs/ansible/bin/activate
+source ~/venv/azure/bin/activate
 ```
 
 ## Install Ansible Dependencies (if not already done)
@@ -34,7 +34,7 @@ ansible -i inventory.azure_rm.yml -m ansible.windows.win_ping azwu2nhsw001
 
 ## Ping Linux Server
 ```
-ansible -i inventory.azure_rm.yml -m ansible.builtin.ping ansible01
+ansible -i inventory.azure_rm.yml -m ansible.builtin.ping ODBTST
 ansible -i inventory.azure_rm.yml -m ansible.builtin.ping -e "ansible_connection=local" ansible01
 ```
 
