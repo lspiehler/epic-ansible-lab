@@ -1,3 +1,9 @@
+## Initialize git
+```
+git config --global user.email "lspiehler@gmail.com"
+git config --global user.name "Lyas Spiehler"
+```
+
 ## Activate Virtual Env
 ```
 source ~/venv/azure/bin/activate
@@ -59,4 +65,29 @@ ansible-playbook -i inventory.azure_rm.yml --limit=windows playbook-provision-st
 ## Provision Ansible Users
 ```
 ansible-playbook -i inventory.azure_rm.yml --limit=ansible01 -e "ansible_connection=local" -e @extra_vars/users.yml playbook-provision-ansible-ssh-users.yml --become
+```
+
+## Show host vars
+```
+ansible-playbook -i inventory.azure_rm.yml --limit=azwu2nhsw001 playbook-show-host-vars.yml
+```
+
+## Show gathered facts
+```
+ansible-playbook -i inventory.azure_rm.yml --limit=azwu2nhsw001 playbook-show-gathered-facts.yml
+```
+
+## Create a directory on Linux
+```
+ansible-playbook -i inventory.azure_rm.yml --limit=ODBTST playbook-create-directory-linux.yml
+```
+
+## Create a directory on Windows
+```
+ansible-playbook -i inventory.azure_rm.yml --limit=azwu2nhsw001 playbook-create-directory-windows.yml
+```
+
+## Install Firefox on a Windows Machine
+```
+ansible-playbook -i inventory.azure_rm.yml --limit=azwu2nhsw001 playbook-install-firefox.yml
 ```

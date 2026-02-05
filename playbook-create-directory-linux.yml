@@ -1,0 +1,11 @@
+---
+- name: Create a directory
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Create a directory if it does not exist
+      ansible.builtin.file:
+        path: /root/testdir
+        state: directory
+        mode: '0755'
+        

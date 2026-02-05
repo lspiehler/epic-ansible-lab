@@ -1,0 +1,8 @@
+---
+- name: Display all variables/facts for the current host
+  hosts: all
+  gather_facts: true
+  tasks:
+    - name: Print all host variables and facts
+      ansible.builtin.debug:
+        var: hostvars[inventory_hostname]
