@@ -3,14 +3,20 @@
   hosts: all
   tasks:
     - name: Download Firefox Installer
-      win_get_url:
+      ansible.windows.win_get_url:
         url: https://download.mozilla.org/?product=firefox-latest&os=win64&lang=en-US
         dest: C:\Temp\Firefox Setup.exe
 
     - name: Install Firefox
-      win_package:
+      ansible.windows.win_package:
         path: C:\Temp\Firefox Setup.exe
         product_id: Mozilla Firefox
         arguments: '-ms'  # -ms enables silent installation
         state: present
+
+    - name: Install RSAT stuff
+      ansible.windows.win_feature:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ rsat_tools }}"
 ...

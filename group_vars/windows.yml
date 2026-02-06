@@ -2,3 +2,7 @@ ansible_user: "{{ lookup('ansible.builtin.env', 'SERVER_ADMIN_USER') }}"
 ansible_password: "{{ lookup('ansible.builtin.env', 'SERVER_ADMIN_PASSWORD') }}"
 ansible_connection: psrp
 ansible_port: 5985
+rsat_tools:
+  - RSAT-AD-Tools
+  - RSAT-AD-PowerShell
+  - RSAT-DNS-Server

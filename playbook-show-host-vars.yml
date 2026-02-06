@@ -5,4 +5,4 @@
   tasks:
     - name: Print all host variables and facts
       ansible.builtin.debug:
-        var: hostvars[inventory_hostname]
+        msg: "{{ hostvars[inventory_hostname] }}"
