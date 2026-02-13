@@ -8,4 +8,7 @@
         path: /root/testdir
         state: directory
         mode: '0755'
-        
+    - name: Install apache
+      ansible.builtin.dnf:
+        name: apache2
+        state: present

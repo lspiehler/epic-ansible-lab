@@ -2,6 +2,7 @@
 ```
 git config --global user.email "lspiehler@gmail.com"
 git config --global user.name "Lyas Spiehler"
+git config --global --add safe.directory /home/ansible/source/epic-ansible-lab
 ```
 
 ## Activate Virtual Env
@@ -90,4 +91,9 @@ ansible-playbook -i inventory.azure_rm.yml --limit=azwu2nhsw001 playbook-create-
 ## Install Firefox on a Windows Machine
 ```
 ansible-playbook -i inventory.azure_rm.yml --limit=azwu2nhsw001 playbook-install-firefox.yml
+```
+
+## Install Notepad++ on a Windows Machine
+````
+ansible-playbook -i inventory.azure_rm.yml --limit=azwu2nhsw001 playbook-install-notepad++.yml
 ```

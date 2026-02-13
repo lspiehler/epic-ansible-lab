@@ -1,0 +1,5 @@
+---
+- name: Run Windows Installer
+  hosts: all
+  roles:
+    - windows_installer
