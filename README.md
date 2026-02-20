@@ -94,6 +94,11 @@ ansible-playbook -i inventory.azure_rm.yml --limit=azwu2nhsw001 playbook-install
 ```
 
 ## Install Notepad++ on a Windows Machine
-````
+```
 ansible-playbook -i inventory.azure_rm.yml --limit=azwu2nhsw001 playbook-install-notepad++.yml
+```
+
+## Run Windows
+```
+ansible-playbook -i inventory.azure_rm.yml --limit=azwu2nhsw001 playbook-windows-installer.yml
 ```

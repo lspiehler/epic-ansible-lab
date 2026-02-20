@@ -1,11 +1,28 @@
-- name: Download Firefox Installer
+- name: Copy HTTP install file
   ansible.windows.win_get_url:
-    url: https://download.mozilla.org/?product=firefox-latest&os=win64&lang=en-US
-    dest: C:\Temp\Firefox Setup.exe
+    url: "{{ item.install_source_dir }}/{{ item.install_source_file }}"
+    dest: "{{ item.files_path }}\\{{ item.install_source_file }}"
+    force: false
+  when: item.install_source_dir is ansible.builtin.uri(schemes=['http', 'https'])
+  loop: "{{ windows_installer_installs }}"
 
-- name: Install Firefox
+- name: Copy install file from Ansible server
+  ansible.windows.win_copy:
+    src: "{{ playbook_dir }}/{{ item.install_source_dir }}/{{ item.install_source_file }}"
+    dest: "{{ item.files_path }}\\{{ item.install_source_file }}"
+    force: false
+  when: item.install_source_dir is not ansible.builtin.uri(schemes=['http', 'https'])
+  loop: "{{ windows_installer_installs }}"
+
+# # - name: Download Firefox Installer
+# #   ansible.windows.win_get_url:
+# #     url: https://download.mozilla.org/?product=firefox-latest&os=win64&lang=en-US
+# #     dest: C:\Temp\Firefox Setup.exe
+
+- name: Install {{ item.install_source_file }}
   ansible.windows.win_package:
-    path: C:\Temp\Firefox Setup.exe
-    product_id: Mozilla Firefox
-    arguments: '-ms'  # -ms enables silent installation
-    state: present
+    path: "{{ item.files_path }}\\{{ item.install_source_file }}"
+    product_id: "{{ item.product_id }}"
+    arguments: "{{ item.arguments }}"  # -ms enables silent installation
+    state: "{{ item.state | default('present') }}"
+  loop: "{{ windows_installer_installs }}"

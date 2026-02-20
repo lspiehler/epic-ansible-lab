@@ -6,3 +6,18 @@ rsat_tools:
   - RSAT-AD-Tools
   - RSAT-AD-PowerShell
   - RSAT-DNS-Server
+
+# windows_installer_install_source_dir: https://download.mozilla.org/?product=firefox-latest&os=win64&lang=en-US
+windows_installer_installs:
+- install_source_dir: ../files
+  install_source_file: Firefox Setup 147.0.4.exe
+  files_path: C:\Windows\Temp
+  product_id: Mozilla Firefox
+  arguments: -ms
+  # state: present
+- install_source_dir: https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.9.1
+  install_source_file: npp.8.9.1.Installer.x64.exe
+  files_path: C:\Windows\Temp
+  product_id: Notepad++
+  arguments: /S
+  state: absent
